@@ -1,16 +1,13 @@
-/*#body {
-    background: #cccccc;
-    position: relative;
-    width:200px;
-}*/
 
 input {
     text-align: center;
     vertical-align: middle
 }
+
 #footer {
     text-align: center;
 }
+
 #backtop {
     border: 1px solid rgb(194, 168, 192);
     background-color: rgb(236, 236, 236);

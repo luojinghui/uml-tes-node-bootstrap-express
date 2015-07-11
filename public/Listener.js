@@ -2,10 +2,10 @@
     window.scroll(0, 0);
     judge();
 
-    // $.post("/sum_score", $("form").serialize(), function(score) {
-    //     $("#sub_score").prop("value", score);
-    // })
-    // $("#submit").prop("disabled", true);
+    $.post("/sum_score", $("form").serialize(), function(score) {
+        $("#sub_score").prop("value", score);
+    })
+    $("#submit").prop("disabled", true);
 });
 
 var addAloneSelectListener = function(name) {
@@ -55,7 +55,7 @@ var judge = function() {
 
 
  // var timer = function() {
- //     var ts = (new Date(2018, 11, 11, 9, 0, 0)) - (new Date());
+ //     var ts = (new Date(4000, 11, 11, 9, 0, 0)) - (new Date());
  //     var mm = parseInt(ts / 1000 / 60 % 60, 10); //计算剩余的分钟数
  //     var ss = parseInt(ts / 1000 % 60, 10); //计算剩余的秒数
  //
