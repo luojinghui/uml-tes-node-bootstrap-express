@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="UTF-8">
+
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+
+<title>CSS定义一个固定在页面顶部的层</title>
+
+<style type="text/css">
+
+body {
+
+height:1200px;
+
+margin: 0;
+
+padding: 0;
+
+background-attachment: fixed; /* prevent screen flash in IE6 */
+
+}
+
+div,ul{margin: 0;padding: 0;}
+
+#topNavWrapper {
+
+width: 980px;
+
+text-align: left;
+
+height: 31px;
+
+margin: 0px auto;
+
+z-index:100;
+
+_position: relative ;
+
+_top:0px;
+
+}
+
+#topNav {
+
+width: 980px;
+
+float: left;
+
+display: block;
+
+z-index: 100;
+
+overflow: visible;
+
+position: fixed;
+
+top: 0px; /* position fixed for IE6 */
+
+_position: absolute;
+
+_top: expression(documentElement.scrollTop + "px");
+
+background-image: url( /uploadfile/2012/0717/0717014456145_4456.gif);
+
+background-repeat: no-repeat;
+
+background-position: right;
+
+height: 31px;
+
+line-height: 31px;
+
+color:#fff;
+
+background-color:#123000;
+
+text-align:center;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div id="topNavWrapper">
+
+<ul class="jd_menu" id="topNav">
+
+我是固定在页面顶部的层
+
+</ul>
+
+</div>
+
+</body>
+
+</html>

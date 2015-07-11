@@ -1,0 +1,9 @@
+#infoFrame {
+    height: 225px;
+    margin-left: 569px;
+    margin-right: 502px;
+    font-size: 23px;
+}
+body{
+    background: rgba(94, 120, 152, 0.1);
+}

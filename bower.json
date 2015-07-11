@@ -1,0 +1,19 @@
+{
+  "name": "uml-exp-juq-aja-boo",
+  "version": "1.0.3",
+  "authors": [
+    "luojinghui <939035243@qq.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.4",
+    "bootstrap": "~3.3.5"
+  }
+}
