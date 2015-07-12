@@ -5,8 +5,12 @@
     $.post("/sum_score", $("form").serialize(), function(score) {
         $("#sub_score").prop("value", score);
     })
-    $("#submit").prop("disabled", true);
+    //$("#submit").prop("disabled", true);
 });
+
+    $("#backtop").on("click",function() {
+        window.scroll(30,20);
+    })
 
 var addAloneSelectListener = function(name) {
     $(":input").each(function() {
