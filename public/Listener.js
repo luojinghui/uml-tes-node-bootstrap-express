@@ -1,4 +1,4 @@
-    $("#submit").on("click", function() {
+$("#submit").on("click", function(event) {
     window.scroll(0, 0);
     judge();
 
@@ -8,7 +8,7 @@
     //$("#submit").prop("disabled", true);
 });
 
-    $("#backtop").on("click",function() {
+$("#backtop").on("click",function() {
         window.scroll(30,20);
     })
 
