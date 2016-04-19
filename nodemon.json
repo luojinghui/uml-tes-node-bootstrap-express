@@ -1,0 +1,22 @@
+{
+    "restartable": "rs",
+    "script": "app",
+    "ext": "js json",
+    "watch": [app.js],
+    "verbose": false,
+    "ignore": [
+        "mixin/*",
+        "public/*",
+        "node_modules/*",
+        "tools/*",
+        "package.json"
+    ],
+    "env": {
+        "NODE_ENV": "development",
+        "port": 3000
+    }
+}
+//监控指定后缀名的文件，用空格间隔。默认监控的后缀文件：.js, .coffee, .litcoffee, .json
+//监控的文件夹路径或者文件路径
+//运行环境 development 是开发环境，production 是生产环境。port 是端口号。
+//注：关于监控以及忽略文件修改有个顺序的问题，或者说优先级，首先 nodemon 会先读取 watch 里面需要监控的文件或文件路径，再从文件中选择监控 ext 中指定的后缀名，最后去掉从 ignore 中指定的忽略文件或文件路径。

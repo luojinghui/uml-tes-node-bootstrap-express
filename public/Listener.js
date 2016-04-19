@@ -4,13 +4,13 @@ $("#submit").on("click", function(event) {
 
     $.post("/sum_score", $("form").serialize(), function(score) {
         $("#sub_score").prop("value", score);
-    })
+    });
     //$("#submit").prop("disabled", true);
 });
 
 $("#backtop").on("click",function() {
         window.scroll(30,20);
-    })
+    });
 
 var addAloneSelectListener = function(name) {
     $(":input").each(function() {
@@ -19,8 +19,8 @@ var addAloneSelectListener = function(name) {
                 $("#" + name).prop("value", this.value);
             });
         }
-    })
-}
+    });
+};
 
 var addListenerSelects = function(name) {
     _.forEach(document.getElementsByName(name), function(element) {
@@ -30,32 +30,32 @@ var addListenerSelects = function(name) {
                 if (this.name === name) {
                     str += this.checked ? this.value : '';
                 }
-            })
+            });
             $("#" + name).prop("value", str);
         });
     });
-}
+};
 
 var listener = function() {
     addAloneSelectListener("one_select_1");
     addAloneSelectListener("one_select_2");
     addListenerSelects("check_box1");
     addListenerSelects("check_box2");
-}
+};
 listener();
 
 var judge = function() {
-    if (document.getElementById("xingming").value == "") {
+    if (document.getElementById("xingming").value === "") {
         alert("请输入姓名");
         event.preventDefault();
-    } else if (document.getElementById("banji").value == "") {
+    } else if (document.getElementById("banji").value === "") {
         alert("请输入班级");
         event.preventDefault();
-    } else if (document.getElementById("xuehao").value == "") {
+    } else if (document.getElementById("xuehao").value === "") {
         alert("请输入学号");
         event.preventDefault();
     }
-}
+};
 
 
  // var timer = function() {

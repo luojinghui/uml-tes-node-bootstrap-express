@@ -19,7 +19,7 @@ function calculate(valName,valValue) {
         if(val.name === valName && val.value.toString() === valValue.toString()) {
             getSubScore = val.score;
         }
-    })
+    });
     return getSubScore;
 }
 

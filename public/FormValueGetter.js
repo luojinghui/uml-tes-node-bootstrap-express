@@ -8,9 +8,9 @@ FormValueGetter.prototype.GetValues = function(form) {
 
     names.forEach(function(val) {
         NamesAndValues.push(getNameAndValue(val));
-    })
+    });
     // console.log(NamesAndValues);
-}
+};
 
     var getNameAndValue = function(name) {
         var ValueAndName = {};
@@ -20,22 +20,22 @@ FormValueGetter.prototype.GetValues = function(form) {
             ValueAndName = {
                 name : name,
                 value : getTextValue(name)
-            }
+            };
         }
         if(dgn[0].type === "radio" || dgn[0].type === "checkbox") {
             ValueAndName = {
                 name : name,
                 value : getSelectValue(name)
-            }
+            };
         }
         if(dgn[0].type === "textarea") {
             ValueAndName = {
                 name : name,
                 value : getTextAreaValue(name)
-            }
+            };
         }
         return ValueAndName;
-    }
+    };
 
     var getTextValue = function(name) {
         var array = [];
@@ -44,7 +44,7 @@ FormValueGetter.prototype.GetValues = function(form) {
             array.push(val.value);
         });
         return array;
-    }
+    };
 
     var getSelectValue = function(name) {
         var array = [];
@@ -56,7 +56,7 @@ FormValueGetter.prototype.GetValues = function(form) {
         });
         // console.log(array);
         return array;
-    }
+    };
 
     var getTextAreaValue = function(name) {
         var array = [];
@@ -65,13 +65,13 @@ FormValueGetter.prototype.GetValues = function(form) {
             array.push(val.value);
         });
         return array;
-    }
+    };
 
     var getNames = function(form) {
         var names = [];
 
         [].forEach.call(document.querySelector(form),function(val,i) {
-            if(val.name != "") {
+            if(val.name !== "") {
                 names.push(val.name);
                 }
             });
@@ -82,4 +82,4 @@ FormValueGetter.prototype.GetValues = function(form) {
                 return key;
             }).value();
         return names;
-    }
+    };

@@ -21,7 +21,7 @@ app.get('/',function(req,res) {
 app.post("/sum_score", function(req, res){
     var answer = req.body;
     var score = Score(answer);
-
+    console.log(123123123+ 123);
     res.send("" + score);
     //
     // res.render('result', {
