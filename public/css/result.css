@@ -1,0 +1,203 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+.one {
+  color: #3bafdA;
+  display: inline-block;
+  zoom: 1;
+  *display: inline;
+}
+.two {
+  color: #da663b;
+  display: inline-block;
+  zoom: 1;
+  *display: inline;
+}
+.three {
+  color: #afda3b;
+  display: inline-block;
+  zoom: 1;
+  *display: inline;
+}
+.four {
+  color: #da3baf;
+  display: inline-block;
+  zoom: 1;
+  *display: inline;
+}
+.five {
+  color: #3bafdA;
+  display: inline-block;
+  zoom: 1;
+  *display: inline;
+}
+.box {
+  background: rgba(123, 123, 123, 0.8);
+}
+.c-b {
+  background: #ddd;
+  height: 40px;
+}
+/*
+ * 采用&引用完整的父选择器
+ * 可通过追加和预追加的方式加工&，从而生成新的选择器
+ * 通过&::after等方式添加伪元素样式规则集合
+ * 同一个选择器可使用多个&
+ * 通过在选择器后添加 "空格&"的方式，可将当前选择器排列到最前面
+ */
+#ps1 .btn {
+  background-color: #aaa;
+  border-radius: 5px;
+}
+#ps1 .btn:hover {
+  background-color: #f6f6f6;
+  cursor: pointer;
+}
+#ps1 .btn-msg,
+#ps1 .btn-eof {
+  color: blue;
+}
+.no-borderradius #ps1 .btn {
+  background-image: url('img/btn-bg.png');
+}
+/*
+ * &指向组选择器时，会生成新的组选择器
+ */
+#dummy1:hover,
+.dummy1:hover {
+  color: red;
+}
+#dummy1 + #dummy1,
+#dummy1 + .dummy1,
+.dummy1 + #dummy1,
+.dummy1 + .dummy1 {
+  font-size: 12px;
+}
+.animal,
+.bear,
+.deer {
+  color: #123;
+}
+.bg,
+.bear,
+.deer {
+  background: #ccc;
+}
+/* 语法1：<selector>:extend(<parentSelector>){} */
+.bear {
+  width: 100px;
+  height: 30px;
+}
+.deer {
+  width: 100px;
+  height: 30px;
+}
+.cal {
+  width: 300px;
+  height: 100px;
+  background-color: #ccc;
+  color: #ccc;
+}
+.mixin {
+  color: #334c66;
+  background-color: #334c66;
+  height: 30px;
+  width: 200px;
+}
+.mi {
+  width: 400px;
+  height: 30px;
+  background-color: #ccc;
+}
+#bundle > .button {
+  display: block;
+  height: 30px;
+  width: 100px;
+  border: 1px solid black;
+  background-color: grey;
+}
+#bundle > .button:hover {
+  background-color: #ccc;
+}
+#header a {
+  display: block;
+  height: 30px;
+  width: 200px;
+  border: 1px solid black;
+  background-color: grey;
+}
+#header a:hover {
+  background-color: #ccc;
+}
+.img {
+  background: url("../img/demo/sea.jpg");
+  height: 40px;
+  width: 400px;
+}
+.s-h {
+  height: 20px;
+  width: 400px;
+  background-image: -webkit-linear-gradient(358deg, black, white);
+  background-image: linear-gradient(92deg, black, white);
+}
+.content {
+  -o-box-shadow: 0px 0px 10px 0px red;
+  -ms-box-shadow: 0px 0px 10px 0px red;
+  box-shadow: 0px 0px 10px 0px red;
+  border: 1px solid gray;
+  margin-top: 20px;
+  text-align: center;
+  display: inline-block;
+  zoom: 1;
+  *display: inline;
+  width: 900px;
+}
+.ba {
+  background-color: #fff;
+  background-image: -webkit-linear-gradient(92deg, #fff, #FF8D8D, #2090FF);
+  background-image: -webkit-linear-gradient(358deg, #fff, #FF8D8D, #2090FF);
+  background-image: linear-gradient(92deg, #fff, #FF8D8D, #2090FF);
+  margin-top: 20px;
+  height: 50px;
+  width: 100%;
+  -webkit-box-reflect: below 0px -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(50%, transparent), to(rgba(255, 255, 255, 0.2)));
+}
+.filter {
+  width: 200px;
+  height: 50px;
+  background: #FF9090;
+  -webkit-box-reflect: below 0px -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(70%, transparent), to(rgba(255, 255, 255, 0.1)));
+}
+.button {
+  display: block;
+  width: 100px;
+  height: 28px;
+  border: 1px solid black;
+  background-color: #f65131;
+}
+.button:hover {
+  background-color: #ccc;
+}
+a.button {
+  display: block;
+  width: 100px;
+  height: 28px;
+  border: 1px solid black;
+  background-color: orange;
+}
+a.button:hover {
+  background-color: white;
+}
+.border {
+  border: 2px solid black;
+  height: 30px;
+  width: 300px;
+}
+.good {
+  width: 200px;
+  height: 30px;
+  background-color: #896;
+  color: red;
+  text-align: center;
+}

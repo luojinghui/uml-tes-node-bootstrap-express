@@ -30,8 +30,14 @@ module.exports = function(grunt) {
         }
     },
     watch: {
-        files: ['public/*.js'],
-        tasks: ['jshint']
+        // files: ['public/*.js'],
+        // tasks: ['jshint'],
+        less: {
+             files: ["./public/less/*"],
+             tasks: ["less", "autoprefixer:development"],
+             options: {
+               livereload: true
+         }
     },
     concat:{
       options: {
@@ -45,34 +51,44 @@ module.exports = function(grunt) {
           src: ['public/question.js','public/Answer.js'],
           dest: 'build/concat.js'
       }
+ }
     },
     less: {
       development: {
-        banner: '/*! author: luo \n version: <%= pkg.version %> \n' +
-        'time: <%= grunt.template.today("yyyy-mm-dd") %> */\n' + 'email: luojinghui424@gmail.com \n',
         options: {
-          paths: ['assets/css']
+          paths: ['public/css'],
+          yuicompress: false
         },
         files: {
-          'path/to/result.css': 'path/to/source.less'
-        }
-      },
-      production: {
-        options: {
-          paths: ['assets/css'],
-          plugins: [
-            new (require('less-plugin-autoprefix'))({browsers: ["last 2 versions"]}),
-            new (require('less-plugin-clean-css'))(cleanCssOptions)
-          ],
-          modifyVars: {
-            imgPath: '"http://mycdn.com/path/to/images"',
-            bgColor: 'red'
-          }
-        },
-        files: {
-          'path/to/result.css': 'path/to/source.less'
+          './public/css/result.css': './public/less/style.less'
         }
       }
+    //   ,
+    //   production: {
+    //     options: {
+    //       paths: ['assets/css'],
+    //       plugins: [
+    //         new (require('less-plugin-autoprefix'))({browsers: ["last 2 versions", 'ie 8', 'ie 9']}),
+    //         new (require('less-plugin-clean-css'))(cleanCssOptions)
+    //       ],
+    //       modifyVars: {
+    //         imgPath: '"http://mycdn.com/path/to/images"',
+    //         bgColor: 'red'
+    //       }
+    //     },
+    //     files: {
+    //       'path/to/result.css': 'path/to/source.less'
+    //     }
+    //   }
+    },
+    autoprefixer: {
+        development: {
+                browsers: ['last 2 versions', 'ie 8', 'ie 9'],
+                expand: true,
+                flatten: true,
+                src: 'public/css/*.css',
+                dest: 'public/css'
+              }
     }
   });
 
@@ -82,6 +98,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-less');
+  grunt.loadNpmTasks('grunt-autoprefixer');
 
 
     // grunt.loadNpmTasks("grunt-contrib-copy");
@@ -93,7 +110,7 @@ module.exports = function(grunt) {
     // grunt.loadNpmTasks("grunt-contrib-cssmin");
 
   // 默认被执行的任务列表。
-  grunt.registerTask('default', ['uglify','jshint']);
+  grunt.registerTask('default', ['uglify','jshint','less']);
   grunt.registerTask('check', ['jshint']);
 
 };
