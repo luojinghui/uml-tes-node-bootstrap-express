@@ -9,7 +9,10 @@
         "public/*",
         "node_modules/*",
         "tools/*",
-        "package.json"
+        "package.json",
+        "Gruntfile.js",
+        ".jshint",
+        "views/*"
     ],
     "env": {
         "NODE_ENV": "development",
