@@ -111,6 +111,6 @@ module.exports = function(grunt) {
 
   // 默认被执行的任务列表。
   grunt.registerTask('default', ['uglify','jshint','less']);
-  grunt.registerTask('check', ['jshint', 'less']);
+  grunt.registerTask('check', ['jshint']);
 
 };
