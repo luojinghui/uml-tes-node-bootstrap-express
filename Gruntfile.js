@@ -63,23 +63,6 @@ module.exports = function(grunt) {
           './public/css/result.css': './public/less/style.less'
         }
       }
-    //   ,
-    //   production: {
-    //     options: {
-    //       paths: ['assets/css'],
-    //       plugins: [
-    //         new (require('less-plugin-autoprefix'))({browsers: ["last 2 versions", 'ie 8', 'ie 9']}),
-    //         new (require('less-plugin-clean-css'))(cleanCssOptions)
-    //       ],
-    //       modifyVars: {
-    //         imgPath: '"http://mycdn.com/path/to/images"',
-    //         bgColor: 'red'
-    //       }
-    //     },
-    //     files: {
-    //       'path/to/result.css': 'path/to/source.less'
-    //     }
-    //   }
     },
     autoprefixer: {
         development: {
@@ -87,7 +70,13 @@ module.exports = function(grunt) {
                 expand: true,
                 flatten: true,
                 src: 'public/css/*.css',
-                dest: 'public/css'
+                dest: 'public/css',
+                watch : {
+                         styles : {
+                              files : ['public/*.css' ],
+                              tasks : ['autoprefixer' ]
+                         }
+                    }
               }
     }
   });
@@ -100,17 +89,36 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-less');
   grunt.loadNpmTasks('grunt-autoprefixer');
 
-
-    // grunt.loadNpmTasks("grunt-contrib-copy");
-    // grunt.loadNpmTasks("grunt-contrib-less");
-    // grunt.loadNpmTasks("grunt-contrib-jshint");
-    // grunt.loadNpmTasks("grunt-contrib-uglify");
-    // grunt.loadNpmTasks("grunt-contrib-watch");
-    // grunt.loadNpmTasks("grunt-contrib-clean");
-    // grunt.loadNpmTasks("grunt-contrib-cssmin");
-
   // 默认被执行的任务列表。
   grunt.registerTask('default', ['uglify','jshint','less']);
   grunt.registerTask('check', ['jshint']);
 
 };
+
+
+
+//   ,
+//   production: {
+//     options: {
+//       paths: ['assets/css'],
+//       plugins: [
+//         new (require('less-plugin-autoprefix'))({browsers: ["last 2 versions", 'ie 8', 'ie 9']}),
+//         new (require('less-plugin-clean-css'))(cleanCssOptions)
+//       ],
+//       modifyVars: {
+//         imgPath: '"http://mycdn.com/path/to/images"',
+//         bgColor: 'red'
+//       }
+//     },
+//     files: {
+//       'path/to/result.css': 'path/to/source.less'
+//     }
+//   }
+
+// grunt.loadNpmTasks("grunt-contrib-copy");
+// grunt.loadNpmTasks("grunt-contrib-less");
+// grunt.loadNpmTasks("grunt-contrib-jshint");
+// grunt.loadNpmTasks("grunt-contrib-uglify");
+// grunt.loadNpmTasks("grunt-contrib-watch");
+// grunt.loadNpmTasks("grunt-contrib-clean");
+// grunt.loadNpmTasks("grunt-contrib-cssmin");
