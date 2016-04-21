@@ -10,24 +10,25 @@ module.exports = function(grunt) {
     uglify: {                                    //指定了一个banner选项(用于在文件顶部生成一个注释)，
         options: {
             stripBanners: true,                    //紧接着是一个单一的名为build的uglify目标，用于将一个js文件压缩为一个目标文件
-            banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
+            banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n',
+            beautify: {
+              beautify: false
+            },
+            mangle: false
+        //   sourceMap: true
+        //   mangle: true
         },
-        build: {
-            src: 'public/*.js',
-            dest: 'build/<%= pkg.name %>-<%= pkg.version %>.min.js'
+        files: {
+            src: ['public/Listener.js', 'public/FormValueGetter.js'],
+            dest: 'build/listener.min.js'
         }
     },
     jshint: {
-        files: ['Grungfile.js','public/Answer.js','public/FormValueGetter.js','public/Listener.js', 'public/question.js','public/score.js'],
+        files: ['Grungfile.js', 'public/*.js'],
         options: {
             jshintrc: '.jshintrc'
-          }
-        // ignore_warning: {
-        //   options: {
-        //     '-W015': true,
-        //   },
-        //   src: ['**/*.js'],
-        // },
+        },
+        ignores: {jshintignore: '.jshintignore'}
     },
     watch: {
         // files: ['public/*.js'],
@@ -68,6 +69,17 @@ module.exports = function(grunt) {
         }
       }
     },
+    cssmin: {
+        options: {
+          sourceMap: true,
+          compatibility: 'ie8',
+          keepSpecialComments: '*'
+        },
+        files: {
+            src: './public/css/main.css',
+            dest: './public/css/main.min.css'
+        }
+    },
     autoprefixer: {
         development: {
                 browsers: ['last 2 versions', 'ie 8', 'ie 9'],
@@ -92,6 +104,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-less');
   grunt.loadNpmTasks('grunt-autoprefixer');
+  grunt.loadNpmTasks('grunt-contrib-cssmin');
 
   // 默认被执行的任务列表。
   grunt.registerTask('default', ['uglify','jshint','less']);
