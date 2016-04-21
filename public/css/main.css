@@ -1,26 +1,31 @@
-.in {
+.in
+{
     display: inline-block;
     zoom: 1;
+
     *display: inline;
 }
 
-input {
-    text-align: center;
-    vertical-align: middle
-}
-
-#footer {
+input
+{
+    vertical-align: middle;
     text-align: center;
 }
 
-#backtop {
+#footer
+{
+    text-align: center;
+}
+
+#backtop
+{
+    width: 21px;
+    height: 83px;
+    right: 10px;
+    bottom: 150px;
     border: 1px solid rgb(194, 168, 192);
     background-color: rgb(236, 236, 236);
     text-align: center;
-    height: 83px;
-    width: 21px;
-    position: fixed;
     cursor: pointer;
-    right: 10px;
-    bottom: 150px;
+    position: fixed;
 }
