@@ -94,6 +94,16 @@ module.exports = function(grunt) {
                          }
                     }
               }
+    },
+    csscomb: {
+        options: {
+                config: 'public/css/sort.json'
+            },
+        main: {
+               files: {
+                   './public/css/main.css': './public/css/main.css',
+               }
+           }
     }
   });
 
@@ -105,6 +115,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-less');
   grunt.loadNpmTasks('grunt-autoprefixer');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
+  grunt.loadNpmTasks('grunt-csscomb');
 
   // 默认被执行的任务列表。
   grunt.registerTask('default', ['uglify','jshint','less']);
@@ -112,8 +123,9 @@ module.exports = function(grunt) {
 
 };
 
-//备注： http://www.xuanfengge.com/grunt-commonly-used-plug-in-introduced.html 查看常用的grunt插件入口
 
+
+//备注： http://www.xuanfengge.com/grunt-commonly-used-plug-in-introduced.html 查看常用的grunt插件入口
 //   ,
 //   production: {
 //     options: {
@@ -131,11 +143,3 @@ module.exports = function(grunt) {
 //       'path/to/result.css': 'path/to/source.less'
 //     }
 //   }
-
-// grunt.loadNpmTasks("grunt-contrib-copy");
-// grunt.loadNpmTasks("grunt-contrib-less");
-// grunt.loadNpmTasks("grunt-contrib-jshint");
-// grunt.loadNpmTasks("grunt-contrib-uglify");
-// grunt.loadNpmTasks("grunt-contrib-watch");
-// grunt.loadNpmTasks("grunt-contrib-clean");
-// grunt.loadNpmTasks("grunt-contrib-cssmin");
