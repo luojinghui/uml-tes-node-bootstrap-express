@@ -22,6 +22,15 @@ var addAloneSelectListener = function(name) {
     });
 };
 
+if(1 & 2 &3) {
+    var a;
+    var b;
+    if(a === b ){
+        console.log(123);
+    }
+    console.log(123);
+}
+
 var addListenerSelects = function(name) {
     _.forEach(document.getElementsByName(name), function(element) {
         element.addEventListener("click", function() {

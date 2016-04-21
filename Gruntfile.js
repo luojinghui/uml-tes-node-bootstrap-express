@@ -18,16 +18,16 @@ module.exports = function(grunt) {
         }
     },
     jshint: {
-        build: ['Gruntfile.js', 'public/Answer.js', 'public/score.js'],
+        files: ['Grungfile.js','public/Answer.js','public/FormValueGetter.js','public/Listener.js', 'public/question.js','public/score.js'],
         options: {
-            jshint: '.jshint'
-        },
-        ignore_warning: {
-          options: {
-            '-W015': true,
-          },
-          src: ['**/*.js'],
-        }
+            jshintrc: '.jshintrc'
+          }
+        // ignore_warning: {
+        //   options: {
+        //     '-W015': true,
+        //   },
+        //   src: ['**/*.js'],
+        // },
     },
     watch: {
         // files: ['public/*.js'],
@@ -37,7 +37,12 @@ module.exports = function(grunt) {
              tasks: ["less", "autoprefixer:development"],
              options: {
                livereload: true
-         }
+           }
+        },
+        jshint: {
+            files: 'public/*.js',
+            tasks: ['jshint']
+        }
     },
     concat:{
       options: {
@@ -51,7 +56,6 @@ module.exports = function(grunt) {
           src: ['public/question.js','public/Answer.js'],
           dest: 'build/concat.js'
       }
- }
     },
     less: {
       development: {
@@ -95,7 +99,7 @@ module.exports = function(grunt) {
 
 };
 
-
+//备注： http://www.xuanfengge.com/grunt-commonly-used-plug-in-introduced.html 查看常用的grunt插件入口
 
 //   ,
 //   production: {
