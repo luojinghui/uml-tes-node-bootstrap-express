@@ -3,3 +3,4 @@ node_modules
 .ideas
 .idea/
 .idea
+bower_components/.DS_Store
