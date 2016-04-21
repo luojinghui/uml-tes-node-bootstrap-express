@@ -1,4 +1,17 @@
-$("#submit").on("click", function(event) {
+var judge = function() {
+    if (document.getElementById("xingming").value === "") {
+        alert("请输入姓名");
+        event.preventDefault();
+    } else if (document.getElementById("banji").value === "") {
+        alert("请输入班级");
+        event.preventDefault();
+    } else if (document.getElementById("xuehao").value === "") {
+        alert("请输入学号");
+        event.preventDefault();
+    }
+};
+
+$("#submit").on("click", function() {
     window.scroll(0, 0);
     judge();
 
@@ -22,15 +35,6 @@ var addAloneSelectListener = function(name) {
     });
 };
 
-if(1 & 2 &3) {
-    var a;
-    var b;
-    if(a === b ){
-        console.log(123);
-    }
-    console.log(123);
-}
-
 var addListenerSelects = function(name) {
     _.forEach(document.getElementsByName(name), function(element) {
         element.addEventListener("click", function() {
@@ -52,20 +56,6 @@ var listener = function() {
     addListenerSelects("check_box2");
 };
 listener();
-
-var judge = function() {
-    if (document.getElementById("xingming").value === "") {
-        alert("请输入姓名");
-        event.preventDefault();
-    } else if (document.getElementById("banji").value === "") {
-        alert("请输入班级");
-        event.preventDefault();
-    } else if (document.getElementById("xuehao").value === "") {
-        alert("请输入学号");
-        event.preventDefault();
-    }
-};
-
 
  // var timer = function() {
  //     var ts = (new Date(4000, 11, 11, 9, 0, 0)) - (new Date());
