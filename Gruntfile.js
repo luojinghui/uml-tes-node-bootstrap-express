@@ -1,5 +1,9 @@
 module.exports = function(grunt) {
 
+    grunt.event.on('qunit.spawn', function (url) {
+      grunt.log.ok('Running test: ' + url);
+    });
+
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),     //存储在package.json文件中的JSON元数据引入到grunt config中
     banner: '/*!\n' +
@@ -104,6 +108,9 @@ module.exports = function(grunt) {
                    './public/css/main.css': './public/css/main.css',
                }
            }
+    },
+    qunit: {
+        all: ['views/*.html']
     }
   });
 
@@ -116,11 +123,15 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-autoprefixer');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-csscomb');
+  grunt.loadNpmTasks('grunt-contrib-qunit');
 
   // 默认被执行的任务列表。
-  grunt.registerTask('default', ['uglify','jshint','less']);
+  // grunt.registerTask('default', ['uglify','jshint','less']);
   grunt.registerTask('check', ['jshint']);
-
+  grunt.registerTask('default', 'My "default" task description.', function() {
+      grunt.task.run('uglify', 'jshint', 'less');
+      grunt.log.writeln('Currently running the "default" task.');
+    });
 };
 
 
