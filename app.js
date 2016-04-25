@@ -2,7 +2,8 @@ var express = require('express');
 var app = express();
 var ejs = require('ejs');
 var bodyParser = require('body-parser');
-var Score = require("./public/score.js")
+var Score = require("./public/score.js");
+var fs = require('fs');
 
 app.engine('.html',ejs.__express);
 app.set('view engine', 'html');
@@ -18,6 +19,10 @@ app.use(bodyParser.json());
 app.get('/',function(req,res) {
     res.render('index', {});
 });
+
+fs.readFile('/test.txt', function(err, file) {
+    console.log(file);
+})
 
 app.post("/sum_score", function(req, res){
     var answer = req.body;
@@ -37,6 +42,8 @@ app.post("/sum_score", function(req, res){
 app.get('/lesss', function(req, res) {
     res.render('less_html', {});
 });
+
+
 
 var server = app.listen(3000,function() {
     var host = server.address().address;

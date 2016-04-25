@@ -37,6 +37,9 @@ module.exports = function(grunt) {
     watch: {
         // files: ['public/*.js'],
         // tasks: ['jshint'],
+        options: {
+           livereload: true
+        },
         less: {
              files: ["./public/less/*"],
              tasks: ["less", "autoprefixer:development"],
@@ -69,7 +72,7 @@ module.exports = function(grunt) {
           yuicompress: false
         },
         files: {
-          './public/css/result.css': './public/less/style.less'
+          './public/css/test.css': './public/less/style.less'
         }
       }
     },
@@ -110,7 +113,7 @@ module.exports = function(grunt) {
            }
     },
     qunit: {
-        all: ['views/*.html']
+      files: ['views/test.html']
     }
   });
 
@@ -129,13 +132,13 @@ module.exports = function(grunt) {
   // grunt.registerTask('default', ['uglify','jshint','less']);
   grunt.registerTask('check', ['jshint']);
   grunt.registerTask('default', 'My "default" task description.', function() {
-      grunt.task.run('uglify', 'jshint', 'less');
+    //   grunt.task.run('uglify', 'jshint', 'less');
       grunt.log.writeln('Currently running the "default" task.');
     });
 };
 
 
-
+// 提示错误：Source file “xxx.less” not found，普通写法对单个文件的编译没问题，但是涉及到多文件多目录的时候，就需要加上配置：expand: true
 //备注： http://www.xuanfengge.com/grunt-commonly-used-plug-in-introduced.html 查看常用的grunt插件入口
 //   ,
 //   production: {
