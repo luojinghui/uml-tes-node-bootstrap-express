@@ -43,7 +43,9 @@ app.get('/lesss', function(req, res) {
     res.render('less_html', {});
 });
 
-
+app.get('/test', function(req, res) {
+    res.render('test', {});
+});
 
 var server = app.listen(3000,function() {
     var host = server.address().address;

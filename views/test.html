@@ -1,17 +1,100 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<script type="text/javascript" src="../public/qunit.js"></script>
-<script>
-    test("hello", function() {
-        ok(true, "world");
-    });
-</script>
+<!-- <script type="text/javascript" src="../public/qunit.js"></script> -->
+<script type="text/javascript" src="/js/jquery.js"></script>
 </head>
 <body>
 <h1 id="qunit-header">QUnit example</h1>
 <h2 id="qunit-banner"></h2>
 <h2 id="qunit-userAgent"></h2>
 <ol id="qunit-tests"></ol>
+<br><br><br><br><br><br>
+
+<div id="ball-1" class=""></div>
+<br>
+<div id="ball-2" class=""></div>
+
+<br><br><br><br><br><br>
 </body>
+<script>
+
+var mask = {
+self : '',
+// isIE6 : $.browser.msie && $.browser.version < 7,
+create : function() {
+    if(this.self && this.self.parent().length) {
+        return;
+    }
+    $(window).bind('resize.overlay', this.resize);
+    return (this.self = (this.self || $('<div></div>').css({
+        height : '100%',
+        left : 0,
+        position : 'absolute',
+        top : 0,
+        width : '100%',
+        background : '#000',
+        'opacity' : 0.3,
+        'z-index' : 2001
+    })).appendTo('body').css({
+        width : this.width(),
+        height : this.height()
+    }));
+},
+destroy : function() {
+    if(this.self && !this.self.parent().length) {
+        return;
+    }
+    $([document, window]).unbind('resize.overlay');
+    this.self.animate({
+        opacity : 'hide'
+    }, function() {
+        $(this).remove().show();
+    });
+},
+resize: function() {
+    var _mask = mask;
+    _mask.self.css({
+        width: 0,height: 0
+    }).css({
+        width: _mask.width(),height: _mask.height()
+    });
+},
+height : function() {
+    var scrollHeight, offsetHeight;
+    if(this.isIE6) {
+        scrollHeight = Math.max(document.documentElement.scrollHeight, document.body.scrollHeight);
+        offsetHeight = Math.max(document.documentElement.offsetHeight, document.body.offsetHeight);
+        if(scrollHeight < offsetHeight) {
+            return $(window).height() + 'px';
+        } else {
+            return scrollHeight + 'px';
+        }
+    } else {
+        return $(document).height() + 'px';
+    }
+},
+width : function() {
+    var scrollWidth, offsetWidth;
+    if(this.isIE6) {
+        scrollWidth = Math.max(document.documentElement.scrollWidth, document.body.scrollWidth);
+        offsetWidth = Math.max(document.documentElement.offsetWidth, document.body.offsetWidth);
+        if(scrollWidth < offsetWidth) {
+            return $(window).width() + 'px';
+        } else {
+            return scrollWidth + 'px';
+        }
+    } else {
+        return $(document).width() + 'px';
+    }
+}
+}
+
+
+// demo
+// mask.create();
+// setTimeout(function(){
+// mask.destroy()
+// }, 10000);
+</script>
 </html>
