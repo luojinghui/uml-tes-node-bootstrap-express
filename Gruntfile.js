@@ -18,13 +18,14 @@ module.exports = function(grunt) {
             beautify: {
               beautify: false
             },
-            mangle: false
-        //   sourceMap: true
+            mangle: false,
+           sourceMap: true
         //   mangle: true
         },
         files: {
             src: ['public/Listener.js', 'public/FormValueGetter.js'],
-            dest: 'build/listener.min.js'
+            dest: 'build/aa.min.js',
+            sourceMap: true
         }
     },
     jshint: {
@@ -108,7 +109,7 @@ module.exports = function(grunt) {
             },
         main: {
                files: {
-                   './public/css/main.css': './public/css/main.css',
+                   './public/css/aaa.css': './public/css/aa.css'
                }
            }
     },
