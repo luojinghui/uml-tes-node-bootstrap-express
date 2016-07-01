@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<style>
+    /*body {margin: 0; padding: 0;}*/
+    .main {
+        width: 90%; margin: 30px auto;
+        display: table;
+        border-collapse: collapse;
+    }
+    .one, .two, .three {
+        display: table-cell;
+        padding: 10px;
+        border-right: 1px solid #eee;
+        vertical-align: middle;
+    }
+    .table-tr {
+        display: table-row;
+        border: 1px solid #eee;
+    }
+    .bg {
+        padding: 15px 50px;
+        display: inline-block;
+        /*border: 1px solid gray;*/
+        background: -webkit-linear-gradient(95deg, #ace, #f96);
+        /*background: -webkit-gradient(linear, 0 0, 100% 100%, from(#ace),to(#f96));*/
+        /*background: -o-linear-gradient(30deg, #ace, #f96);*/
+        background-color: #eee;
+    }
+</style>
+<body>
+<span class="bg">搜索</span>
+<div class="main">
+    <div class="table-tr">
+        <div class="one">
+            123123123123123
+            <br/><br/><br/>
+            123123123123123
+            <br/><br/><br/>
+            123123123123123
+            <br/><br/><br/>
+            123123123123123
+        </div>
+        <div class="two">
+            123123123123123
+            <br/><br/><br/>        123123123123123
+            <br/><br/><br/>        123123123123123
+            <br/><br/><br/>        123123123123123
+                    123123123123123
+        </div>
+        <div class="three">
+            123123123123123
+            <br/><br/><br/>        123123123123123
+            <br/><br/><br/>        123123123123123
+            <br/><br/><br/>        123123123123123
+
+        </div>
+    </div>
+    <div class="table-tr" rowspan="2">
+        <div class="one">
+            123123123123123
+            <br/><br/><br/>
+            123123123123123
+            <br/><br/><br/>
+            123123123123123
+            <br/><br/><br/>
+            123123123123123
+        </div>
+        <div class="two">
+            123123123123123
+            <br/><br/><br/>        123123123123123
+            <br/><br/><br/>        123123123123123
+            <br/><br/><br/>        123123123123123
+            <br/><br/><br/>        123123123123123
+        </div>
+        <div class="three">
+            123123123123123
+            <br/><br/><br/>        123123123123123
+            <br/><br/><br/>        123123123123123
+            <br/><br/><br/>        123123123123123
+
+        </div>
+
+    </div>
+</div>
+</body>
+</html>
